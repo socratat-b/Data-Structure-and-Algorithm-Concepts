@@ -99,6 +99,60 @@ function merge(leftArr, rightArr) {
 
 // console.log(mergeSort(unsortedArray));
 
-// Two pointers
+// Two pointers(sorted array)
+// Examples of two pointers
+function twoSumProblem(arr, target) {
+  let pointer = 0;
+  let pointerTwo = arr.length - 1;
+
+  // Base case check if the two pointer crossed
+  while (pointer < pointerTwo) {
+    let sum = arr[pointer] + arr[pointerTwo];
+
+    if (sum === target) {
+      return [pointer, pointerTwo];
+    } else if (sum < target) {
+      pointer++;
+    } else {
+      pointerTwo--;
+    }
+  }
+
+  return -1; //return if there is no pointer
+}
+
+// Reverse an array
+function reverseArray(arr) {
+  let leftPointer = 0;
+  let rightPointer = arr.length - 1;
+
+  while (leftPointer < rightPointer) {
+    [arr[leftPointer], arr[rightPointer]] = [
+      arr[rightPointer],
+      arr[leftPointer],
+    ]; //swap values using destructuring
+    leftPointer++;
+    rightPointer--;
+  }
+
+  return arr;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(reverseArray(arr));
+
+// check if palindrome
+function isPalindrome(str) {
+  let left = 0;
+  let right = str.length - 1;
+
+  while (left < right) {
+    if (str(left) !== str(right)) return false;
+    left++;
+    right--;
+  }
+
+  return true;
+}
 
 // Sliding window
